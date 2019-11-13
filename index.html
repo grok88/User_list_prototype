@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+  
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+   <div class="d-flex flex-row align-items-center justify-content-end mt-3 pr-3" id="topLine">
+       <p class="h3 mr-auto ml-md-3"><a href="#">JSExpert</a></p>
+        <nav>
+            <a class="p-2 text-dark" href="#">Главная</a>
+            <a class="p-2 text-dark" href="#">Галлерея</a>
+            <a class="p-2 text-dark" href="#">О компании</a>
+            <a class="p-2 text-dark" href="#">Курсы</a>
+        </nav>
+        <button class="btn btn-outline-primary">ВОЙТИ</button>
+   </div>
+
+   <main class="mainBlock">
+        <section class="jumbotron jumbotron-fluid text-center text-muted">
+            <div class="container">
+                <h1> Список пользователей </h1>
+                <p class="lead ">На этой странице вы можете увидеть всех пользователей системы, их контактные данные и уровень доступа..</p>
+            </div>
+        </section>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <div id="dropdown-email">
+                        <select>
+                            <option value="0" default>Сортировать по e-mail</option>
+                            <option value="AZ">Cортировать от A-Z</option>
+                            <option value="ZA">Сортировать от Z-A</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                        <div id="dropdown-role">
+                            <select>
+                                <option value="0" default>Фильтровать по роли</option>
+                                <option value="Admin">Выбрать роль: Admin</option>
+                                <option value="User">Выбрать роль: User</option>
+                            </select>
+                        </div>
+                </div>
+               <!--  <div class="col-md-3">
+                    <div class="btn-group" id="dropdown-email">
+                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                           Сортировать по e-mail
+                        </button>
+                        <div class="dropdown-menu">
+                          <a class="dropdown-item" sorting-type="AZ" href="#">Cортировать от A-Z</a>
+                          <a class="dropdown-item" sorting-type="ZA" href="#">Сортировать от Z-A</a>                  
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="btn-group" id="dropdown-role">
+                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Фильтровать по роли
+                        </button>
+                        <div class="dropdown-menu">
+                          <a class="dropdown-item" sorting-type="Admin" href="#">Выбрать роль: Admin</a>
+                          <a class="dropdown-item" sorting-type="User" href="#">Выбрать роль: User</a>                  
+                        </div>
+                    </div>
+                </div> -->
+                <div class="col-md-6">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon1">&#128270;</span>
+                        <input type="text" class="form-control" placeholder="Search" id="inputSearch">
+                      </div>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-md-12">
+                <table class="table table-hover">
+                    <thead>
+                        <th>
+                            <input type="checkbox" id="selectAll">
+                        </th>
+                        <th>#</th>
+                        <th>Имя</th>
+                        <th>Логин</th>
+                        <th>Роль</th>
+                        <th>Email</th>
+                        <th>Адрес</th>
+                        <th>Сайт</th>
+                        <th>Детальнее</th>
+                    </thead>
+                    <tbody id="user-list">
+                       
+                    </tbody>
+                </table>
+                 </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 text-center mb-4">
+                    <a href="#" class="btn btn-primary btn-next-page" >Следующая страница</a>
+                    <p class="statsUsers mt-2"></p>
+                </div>
+            </div>
+        </div>
+
+   </main>
+
+   <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
+   <script src="https://getbootstrap.com/assets/js/vendor/popper.min.js"></script>
+   <script src="https://getbootstrap.com/dist/js/bootstrap.min.js"></script>
+   <script src="js/data.js"></script>
+   <script src="js/config.js"></script>
+   <script src="js/service.js"></script>
+   <script src="js/main.js"></script>
+   <!-- <script src="js/test.js"></script> -->
+</body>
+</html>

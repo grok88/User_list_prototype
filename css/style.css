@@ -1,0 +1,26 @@
+:root {
+  --jumbotron-padding-y: 3rem;
+}
+.jumbotron .container {
+  max-width: 40rem;
+}
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
+}
+.btn-primary.focus, .btn-primary:focus {
+  box-shadow: none;
+}
+
+#topLine{
+  box-shadow: 0px 3px 5px 0px #ddd;
+  line-height: 50px;
+}
+.btnBack{
+  width: 100%;
+  margin-top: 15px;
+  margin-bottom: 100px;  
+ }
