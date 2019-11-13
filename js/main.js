@@ -37,7 +37,6 @@ BaseList.prototype = {
         this.emailDropDown.addEventListener('click', this.sortHandler.bind(this));
         this.roleDropDown.addEventListener('click', this.sortHandler.bind(this));
         this.search.addEventListener('keyup', this.searchFunc.bind(this));
-        // this.nextBtn.addEventListener('click', this.getNextPage.bind(this));
     },
     // выбор всех чекбоксов
     selectAllItem : function(){
@@ -106,8 +105,64 @@ BaseList.prototype = {
         this.buildUserList();
     }
 }
-let baseList = new BaseList();
-baseList.init();
+
+// let baseList = new BaseList();
+// baseList.init();
+
+// Класс потомок, делает переход на след страницу
+let PageListing = function(){
+    BaseList.apply(this);
+    this.pageService = {
+        pageItem : 10,
+        currentPage : 0
+    }    
+}
+
+PageListing.prototype = {
+    initListeners : function(){
+        BaseList.prototype.initListeners.apply(this);
+        this.nextBtn.addEventListener('click', this.getNextPage.bind(this));
+    },
+    // Построение следущего списка
+    getNextPage : function(e){
+        e.preventDefault();
+        this.buildUserList();
+        if(this.isMaxPage()){
+            this.disableBtn();
+            this.showUserRole();
+        }
+    },
+    // если страница последняя - вернет true
+    isMaxPage : function(){
+        return (this.pageService.currentPage * this.pageService.pageItem >= this.userData.length);
+    },
+    // Если страница последняя - блокируем кнопку
+    disableBtn : function(){
+        this.nextBtn.classList.add('disabled');
+    },
+    // Отображает счетчик с Admin & user
+    showUserRole : function(){
+        let info = this.userData.reduce((sum, user) => {
+            (user.role === 'Admin') ? sum.admin++ : sum.user++;
+            return sum;
+        }, {admin:0, user:0});
+        this.countRole.innerHTML = `Пользователи : Admin - ${info.admin}, User - ${info.user}`;
+    },
+    getPage : function(){
+        let start = this.pageService.pageItem * this.pageService.currentPage;
+        let end = this.pageService.pageItem + start;
+        this.pageService.currentPage++;
+        return this.userData.slice(start,end);
+    }
+}
+
+listService.inheritance(BaseList, PageListing);
+
+let pageListing = new PageListing();
+
+pageListing.init();
+
+console.log(pageListing);
 /* 
 (function(){
     // const selectAll = document.querySelector('#selectAll'),
